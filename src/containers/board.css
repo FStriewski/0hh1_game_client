@@ -1,0 +1,11 @@
+.Board {
+  flex: 1;
+  margin: 40px auto;
+  min-width: 10%;
+  border: 10px solid #eee;
+}
+
+.Board .row {
+  display: flex;
+  flex-flow: row wrap;
+}
