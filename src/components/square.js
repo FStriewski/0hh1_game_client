@@ -1,7 +1,9 @@
-// src/containers/Board.js
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import { move } from '../actions/game'
 import './square.css'
+
 
 class Square extends PureComponent {
   static propTypes = {
@@ -19,9 +21,14 @@ class Square extends PureComponent {
    return classnames.join(' ')
  }
 
+ handleClick = () => {
+   this.props.move(this.props.row, this.props.col)
+ }
+
   render() {
     return (
       <div
+        //<Square key={index} value={value} row={index} col={rowIndex}/>
             className={this.classNames()}
             onClick={this.handleClick}
           />
@@ -29,4 +36,5 @@ class Square extends PureComponent {
   }
 }
 
-export default Square
+//const mapStateToProps = ({ row,col }) => ({ row,col })
+export default connect(null, { move })(Square)

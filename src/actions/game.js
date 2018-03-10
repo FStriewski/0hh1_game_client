@@ -1,4 +1,4 @@
-import { CREATE_GAME } from './types'
+import { CREATE_GAME, MOVE } from './types'
 import { fillBoard } from '../lib/game'
 
 export const createGame = (rows = 6) => {
@@ -11,3 +11,11 @@ export const createGame = (rows = 6) => {
     }
   }
 }
+
+export const move = (row, col) => ({
+  type: MOVE,
+  payload: {
+    row,
+    col
+  }
+})
