@@ -11,8 +11,8 @@ class App extends Component {
        <div className="App">
          <h1 className="title">0hh1</h1>
          <GameStatus/>
+          <CreateGameButton/>
          <Board />
-         <CreateGameButton/>
        </div>
      )
    }
