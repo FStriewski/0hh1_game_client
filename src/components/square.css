@@ -44,3 +44,7 @@
 .Square.fill-2.locked {
   background-color: #2F619B;
 }
+
+.Square.dupe{
+    border: 4px solid #yellow;
+}
