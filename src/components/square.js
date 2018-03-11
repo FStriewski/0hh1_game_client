@@ -15,13 +15,14 @@ class Square extends PureComponent {
 
    let classnames = ['Square']
    classnames.push(`fill-${value || 0}`)
-   // if (locked) classnames.push('locked')
-   // if (dupe) classnames.push('dupe')
-   // if (error) classnames.push('wrong')
+      if (locked) classnames.push('locked')
+     // if (dupe) classnames.push('dupe')
+     // if (error) classnames.push('wrong')
    return classnames.join(' ')
  }
 
  handleClick = () => {
+   if (this.props.locked) return
    this.props.move(this.props.row, this.props.col)
  }
 
@@ -36,5 +37,7 @@ class Square extends PureComponent {
   }
 }
 
-//const mapStateToProps = ({ row,col }) => ({ row,col })
-export default connect(null, { move })(Square)
+// I was not able to solve this function myself:
+const mapStateToProps = ({locked}, { row,col }) => ({locked: locked.filter(l => l[0]=== row && l[1] === col).length >0
+ })
+export default connect(mapStateToProps, { move })(Square)
